@@ -8,7 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, ITEM_TYPE){
+    ITEM_TYPE_BOOK
+};
+
 @interface Item : NSObject
-@property (nonatomic, readonly) float price;
+@property (nonatomic) float price;
+@property (nonatomic) float totalPrice;
 + (instancetype)costing:(float)price;
++ (instancetype)ofType:(ITEM_TYPE)type costing:(float)price;
 @end

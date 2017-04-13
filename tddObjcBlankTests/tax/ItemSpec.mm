@@ -9,8 +9,32 @@ SPEC_BEGIN(ItemSpec)
 describe(@"Item", ^{
     __block Item *subject;
 
-    beforeEach(^{
-
+    describe(@"instantiation", ^{
+        beforeEach(^{
+            subject = [Item costing:2.50];
+        });
+        it(@"should populate with correct price", ^{
+            subject.price should be_close_to(2.50);
+        });
+    });
+    
+    describe(@"total price after tax 10% HST", ^{
+        beforeEach(^{
+            subject = [Item costing:10.00];
+        });
+        
+        it(@"should populate the correct cost", ^{
+            subject.totalPrice should be_close_to(11.00);
+        });
+    });
+    
+    describe(@"total price for a book after 5% GST", ^{
+        beforeEach(^{
+            subject = [Item ofType:ITEM_TYPE_BOOK costing:7.00];
+        });
+        it(@"should populate the correct total price", ^{
+            subject.totalPrice should be_close_to(7.35);
+        });
     });
 });
 

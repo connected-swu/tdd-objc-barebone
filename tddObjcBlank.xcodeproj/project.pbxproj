@@ -20,6 +20,8 @@
 		F4689CBD1E9D516C00A35D5E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4689CBB1E9D516C00A35D5E /* LaunchScreen.storyboard */; };
 		F4B433CB1E9E75780008754F /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B433CA1E9E75780008754F /* Item.m */; };
 		F4B433CD1E9E762C0008754F /* ItemSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = F4B433CC1E9E762C0008754F /* ItemSpec.mm */; };
+		F4B433CF1E9ED3860008754F /* ItemListSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = F4B433CE1E9ED3860008754F /* ItemListSpec.mm */; };
+		F4B433D21E9ED5080008754F /* ItemList.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B433D11E9ED5080008754F /* ItemList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,9 @@
 		F4B433C91E9E75780008754F /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		F4B433CA1E9E75780008754F /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		F4B433CC1E9E762C0008754F /* ItemSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ItemSpec.mm; sourceTree = "<group>"; };
+		F4B433CE1E9ED3860008754F /* ItemListSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ItemListSpec.mm; sourceTree = "<group>"; };
+		F4B433D01E9ED5080008754F /* ItemList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemList.h; sourceTree = "<group>"; };
+		F4B433D11E9ED5080008754F /* ItemList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemList.m; sourceTree = "<group>"; };
 		F7FFB31396D953C1799BA403 /* Pods-tddObjcBlankTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tddObjcBlankTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tddObjcBlankTests/Pods-tddObjcBlankTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +105,8 @@
 			children = (
 				F4B433C91E9E75780008754F /* Item.h */,
 				F4B433CA1E9E75780008754F /* Item.m */,
+				F4B433D01E9ED5080008754F /* ItemList.h */,
+				F4B433D11E9ED5080008754F /* ItemList.m */,
 			);
 			path = tax;
 			sourceTree = "<group>";
@@ -108,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				F4B433CC1E9E762C0008754F /* ItemSpec.mm */,
+				F4B433CE1E9ED3860008754F /* ItemListSpec.mm */,
 			);
 			path = tax;
 			sourceTree = "<group>";
@@ -344,6 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4B433CB1E9E75780008754F /* Item.m in Sources */,
+				F4B433D21E9ED5080008754F /* ItemList.m in Sources */,
 				F40D1AB81E9D71B2009847D3 /* NSArray+SwuTaxCalculating.m in Sources */,
 				F4689CB51E9D516C00A35D5E /* ViewController.m in Sources */,
 				F40D1AB91E9D71B2009847D3 /* SwuItem.m in Sources */,
@@ -357,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F40D1ABD1E9D71B9009847D3 /* FINISHED_ItemSpec.mm in Sources */,
+				F4B433CF1E9ED3860008754F /* ItemListSpec.mm in Sources */,
 				F40D1ABE1E9D71B9009847D3 /* FINISHED_NSArray_TaxCalculatingSpec.mm in Sources */,
 				F4B433CD1E9E762C0008754F /* ItemSpec.mm in Sources */,
 			);
