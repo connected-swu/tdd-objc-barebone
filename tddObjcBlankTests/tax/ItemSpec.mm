@@ -11,8 +11,9 @@ describe(@"Item", ^{
 
     describe(@"instantiation", ^{
         beforeEach(^{
-            subject = [Item costing:2.50];
+            subject = [Item ofType:ITEM_TYPE_GENERAL costing:2.50];
         });
+        
         it(@"should populate with correct price", ^{
             subject.price should be_close_to(2.50);
         });
@@ -20,7 +21,7 @@ describe(@"Item", ^{
     
     describe(@"total price after tax 10% HST", ^{
         beforeEach(^{
-            subject = [Item costing:10.00];
+            subject = [Item ofType:ITEM_TYPE_GENERAL costing:10.00];
         });
         
         it(@"should populate the correct cost", ^{
@@ -32,8 +33,19 @@ describe(@"Item", ^{
         beforeEach(^{
             subject = [Item ofType:ITEM_TYPE_BOOK costing:7.00];
         });
+        
         it(@"should populate the correct total price", ^{
             subject.totalPrice should be_close_to(7.35);
+        });
+    });
+    
+    describe(@"total price for a food after NO TAX!", ^{
+        beforeEach(^{
+            subject = [Item ofType:ITEM_TYPE_FOOD costing:7.00];
+        });
+        
+        it(@"should populate the correct total price", ^{
+            subject.totalPrice should be_close_to(7.00);
         });
     });
 });

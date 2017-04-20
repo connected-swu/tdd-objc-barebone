@@ -27,11 +27,16 @@
 }
 
 - (float)totalPrice {
-    float total = 0.0f;
+    float totalPreTax = 0.0f;
+    float totalAfterTax = 0.0f;
     for (Item *item in self.items) {
-        total += item.totalPrice;
+        totalPreTax += item.price;
+        totalAfterTax += item.totalPrice;
     }
-    return total;
+    if (totalPreTax >= 50.f) {
+        totalAfterTax *= 0.8;
+    }
+    return totalAfterTax;
 }
 
 @end

@@ -22,8 +22,17 @@
     Item *item = [[Item alloc] init];
     item.price = price;
     
-    if (type == ITEM_TYPE_BOOK) {
-        item.totalPrice = price * 1.05;
+    switch (type) {
+        case ITEM_TYPE_BOOK:
+            item.totalPrice = price * 1.05;
+            break;
+        case ITEM_TYPE_FOOD:
+            item.totalPrice = price;
+            break;
+        case ITEM_TYPE_GENERAL:
+        default:
+            item.totalPrice = price * 1.10;
+            break;
     }
     return item;
 }
