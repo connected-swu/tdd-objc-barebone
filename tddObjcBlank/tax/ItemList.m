@@ -27,17 +27,21 @@
 }
 
 - (float)totalPrice {
-    float totalPreTax = 0.0f;
-    float totalAfterTax = 0.0f;
+    float totalAfterTax = 0.0;
+    float totalBeforeTax = 0.0;
     for (Item *item in self.items) {
-        totalPreTax += item.price;
-        totalAfterTax += item.totalPrice;
+        totalBeforeTax += item.price;
+        if (item.type == ITEM_TYPE_BOOK) {
+            totalAfterTax += item.price * 1.05;
+        } else if (item.type == ITEM_TYPE_FOOD) {
+            totalAfterTax += item.price;
+        } else {
+            totalAfterTax += item.price * 1.1;
+        }
     }
-    
-    if (totalPreTax >= 50) {
+    if (totalBeforeTax >= 50.0) {
         totalAfterTax *= 0.8;
     }
-    
     return totalAfterTax;
 }
 

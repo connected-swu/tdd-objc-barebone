@@ -32,6 +32,44 @@ describe(@"ItemList", ^{
         });
     });
     
+    
+    describe(@"total price after tax 10% HST", ^{
+        beforeEach(^{
+            Item *item = [Item ofType:ITEM_TYPE_GENERAL costing:10.00];
+            subject = [ItemList withItems:@[item]];
+        });
+        
+        it(@"should populate the correct cost", ^{
+            [subject totalPrice] should be_close_to(11.00);
+        });
+    });
+    
+    describe(@"total price for a book after 5% GST", ^{
+        beforeEach(^{
+            Item *item = [Item ofType:ITEM_TYPE_BOOK costing:7.00];
+            subject = [ItemList withItems:@[item]];
+        });
+        
+        it(@"should populate the correct total price", ^{
+            [subject totalPrice] should be_close_to(7.35);
+        });
+    });
+    
+    describe(@"total price for a food after NO TAX!", ^{
+        beforeEach(^{
+            Item *item = [Item ofType:ITEM_TYPE_FOOD costing:7.00];
+            subject = [ItemList withItems:@[item]];
+        });
+        
+        it(@"should populate the correct total price", ^{
+            [subject totalPrice] should be_close_to(7.00);
+        });
+    });
+
+    
+    
+    
+    
     describe(@"total price after tax", ^{
         beforeEach(^{
             subject = [ItemList withItems:@[item1, item2]];

@@ -16,6 +16,7 @@ typedef NS_ENUM(NSInteger, ITEM_TYPE){
 
 @interface Item : NSObject
 @property (nonatomic) float price;
-@property (nonatomic) float totalPrice;
+@property (nonatomic) ITEM_TYPE type;
+
 + (instancetype)ofType:(ITEM_TYPE)type costing:(float)price;
 @end
