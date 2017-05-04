@@ -33,9 +33,11 @@
         totalPreTax += item.price;
         totalAfterTax += item.totalPrice;
     }
-    if (totalPreTax >= 50.f) {
+    
+    if (totalPreTax >= 50) {
         totalAfterTax *= 0.8;
     }
+    
     return totalAfterTax;
 }
 

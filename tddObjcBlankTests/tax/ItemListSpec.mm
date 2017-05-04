@@ -66,7 +66,7 @@ describe(@"ItemList", ^{
         });
     });
     
-    describe(@"total price after 10% HST and 5% GST tax and NO TAX", ^{
+    describe(@"price of general item, book, and food item", ^{
         beforeEach(^{
             item1 = [Item ofType:ITEM_TYPE_BOOK costing:10.00];
             item2 = [Item ofType:ITEM_TYPE_GENERAL costing:20.00];
@@ -75,7 +75,7 @@ describe(@"ItemList", ^{
             subject = [ItemList withItems:@[item1, item2, item3]];
         });
         
-        it(@"should be correct", ^{
+        it(@"should add 10% to general item and 5% to book", ^{
             subject.totalPrice should be_close_to(42.5);
         });
     });
@@ -94,25 +94,23 @@ describe(@"ItemList", ^{
         });
         context(@"for goods costing $50 before tax", ^{
             beforeEach(^{
-                item1 = [Item ofType:ITEM_TYPE_BOOK costing:20.00];
-                item2 = [Item ofType:ITEM_TYPE_GENERAL costing:25.00];
-                item3 = [Item ofType:ITEM_TYPE_FOOD costing:5.00];
-                subject = [ItemList withItems:@[item1, item2, item3]];
+                item1 = [Item ofType:ITEM_TYPE_GENERAL costing:50.00];
+                subject = [ItemList withItems:@[item1]];
             });
             it(@"should apply 20% discount", ^{
-                //TODO
-            });
-        });
-        context(@"for goods over $50 before tax", ^{
-            beforeEach(^{
-                item1 = [Item ofType:ITEM_TYPE_BOOK costing:20.00];
-                item2 = [Item ofType:ITEM_TYPE_GENERAL costing:25.00];
-                item3 = [Item ofType:ITEM_TYPE_FOOD costing:10.00];
-                subject = [ItemList withItems:@[item1, item2, item3]];
+                subject.totalPrice should be_close_to(44.00);
             });
         });
         
-
+        context(@"for goods costing more than $50 before tax", ^{
+            beforeEach(^{
+                item1 = [Item ofType:ITEM_TYPE_GENERAL costing:51.00];
+                subject = [ItemList withItems:@[item1]];
+            });
+            it(@"should apply 20% discount", ^{
+                subject.totalPrice should be_close_to(44.88);
+            });
+        });
     });
 });
 
