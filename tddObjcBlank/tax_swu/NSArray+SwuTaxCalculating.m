@@ -12,20 +12,23 @@
 
 - (float)swu_totalTax {
     float total = 0.0;
+    float totalBeforeTax = 0.0;
     for (SwuItem *item in self) {
-        total += item.price;
+        totalBeforeTax += item.price;
         switch (item.type) {
             case SwuItemTypeGeneral:
-                total += item.price * 0.1;
+                total += item.price * 1.1;
                 break;
             case SwuItemTypeBook:
-                total += item.price * 0.05;
+                total += item.price * 1.05;
                 break;
             case SwuItemTypeFood:
+            default:
+                total += item.price;
                 break;
         }
     }
-    return total;
+    return (50.00 - totalBeforeTax > FLT_EPSILON) ? total : total * 0.8;
 }
 
 @end

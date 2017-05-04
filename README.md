@@ -22,7 +22,7 @@ Finished in 0.0062 seconds
 
 0 examples, 0 failures
 Test Suite 'All tests' passed at 2017-04-11 17:18:49.269.
-	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.036) seconds
+     Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.036) seconds
 ```
 
 and voila!  You're good to go!
@@ -35,7 +35,9 @@ and voila!  You're good to go!
 >   * _5% GST on books_
 >   * _Food is tax exempt_
 
-In this exercise, we've decided to split the feature into the stories **A**, **B**, **C**, and **D** below.
+> Apply discount of 20% to totals of $50 or more before taxes.
+
+In this exercise, we've decided to split the feature into the stories **A**, **B**, **C**, **D**, and **E** below.
 
 Begin by opening `tddObjcBlankTests/tax/ItemSpec.mm` and writing a failing test for the first story.  Then continue to `tddObjcBlank/tax/Item.m` to fill out the passing implementation.  Don't forget to check out [these tips](#helpful-tips).  Go [here](#a-few-notes-on-tooling) if you're interested in learning a bit more about the TDD framework.
 
@@ -67,6 +69,12 @@ Begin by opening `tddObjcBlankTests/tax/ItemSpec.mm` and writing a failing test 
 > - 10% HST on all goods except books and food  
 > - 5% GST on books  
 > - food is tax exempt  
+
+**Story E**
+
+> **Given:**  Jimmy is a big spender looking for rewards on his purchase.  
+> **When:**  Jimmy supplies his list of goods to the cost calculator.  
+> **Then:**  Jimmy is pleasantly surprised with a 20% discount.  
 
 A set of solutions to this exercise can be found under the `tax_swu` folder.  To run the tests, simply remove the `x` from `xdescribe` in each spec.
 

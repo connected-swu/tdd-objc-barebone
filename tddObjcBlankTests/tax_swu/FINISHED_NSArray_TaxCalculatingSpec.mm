@@ -68,6 +68,42 @@ xdescribe(@"NSArray_TaxCalculating", ^{
         });
     });
     
+    describe(@"applying discount", ^{
+        context(@"for items costing less than $50 before tax, but more than $50 after tax", ^{
+            beforeEach(^{
+                subject = @[[SwuItem ofType:SwuItemTypeGeneral
+                                    costing:49.99]];
+            });
+            it(@"should not apply a 20% discount", ^{
+                [subject swu_totalTax] should be_close_to(54.99);
+            });
+        });
+        context(@"for items costing exactly $50 before tax", ^{
+            beforeEach(^{
+                subject = @[[SwuItem ofType:SwuItemTypeFood
+                                    costing:25.00],
+                            [SwuItem ofType:SwuItemTypeFood
+                                    costing:25.00]];
+            });
+            it(@"should apply a 20% discount", ^{
+                [subject swu_totalTax] should be_close_to(40.00);
+            });
+        });
+        context(@"for items costing more than $50 before tax", ^{
+            beforeEach(^{
+                subject = @[[SwuItem ofType:SwuItemTypeGeneral
+                                    costing:15.00],
+                            [SwuItem ofType:SwuItemTypeBook
+                                    costing:15.00],
+                            [SwuItem ofType:SwuItemTypeFood
+                                    costing:20.01]];
+            });
+            it(@"should apply a 20% discount", ^{
+                [subject swu_totalTax] should be_close_to(41.81);
+            });
+        });
+    });
+    
 });
 
 SPEC_END
